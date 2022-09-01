@@ -5,18 +5,30 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Blob {
 	private String file;
 	private BufferedReader br;
+	private final String FILE_NAME;
 	
 	public Blob (String f) throws IOException {
 		br = new BufferedReader(new FileReader (f));
 		while (br.ready()) {
 			file += br.read();
 		}
+		String en = this.encryptThisString(file);
+		FILE_NAME="objects/"+en+".txt";
+		
+	}
+	
+	private void makeFile(String s) throws IOException {
+		Path newFilePath = Paths.get(FILE_NAME);
+	    Files.createFile(newFilePath);
 	}
 	
 	 public static String encryptThisString(String input)
