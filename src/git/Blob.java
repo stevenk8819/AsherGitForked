@@ -23,7 +23,7 @@ public class Blob {
 		}
 		String en = this.encryptThisString(file);
 		FILE_NAME="objects/"+en+".txt";
-		
+		makeFile(FILE_NAME);
 	}
 	
 	private void makeFile(String s) throws IOException {
