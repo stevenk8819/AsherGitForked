@@ -1,14 +1,22 @@
 package git;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Blob {
 	private String file;
+	private BufferedReader br;
 	
-	public Blob (String f) {
-		file = f;
+	public Blob (String f) throws IOException {
+		br = new BufferedReader(new FileReader (f));
+		while (br.ready()) {
+			file += br.read();
+		}
 	}
 	
 	 public static String encryptThisString(String input)
