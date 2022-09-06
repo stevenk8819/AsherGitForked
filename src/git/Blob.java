@@ -12,21 +12,21 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Blob {
-	private String file;
+	private String file = "";
 	private BufferedReader br;
-	private final String FILE_NAME;
+	private final String FILE_NAME; 
 	private FileWriter fw;
 	
 	public Blob (String f) throws IOException {
 		br = new BufferedReader(new FileReader (f));
 		while (br.ready()) {
-			file += br.read();
+			file += (char)br.read();
 		}
 		br.close();
 		String en = this.encryptThisString(file);
 		FILE_NAME="/Users/asher/eclipse-workspace/Git Prereq/objects/"+en+".txt";
 		makeFile(FILE_NAME);
-		fw = new FileWriter(en);
+		fw = new FileWriter(FILE_NAME);
 		fw.write(file);
 		fw.close();
 	}
