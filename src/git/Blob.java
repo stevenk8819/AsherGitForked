@@ -1,11 +1,9 @@
 package git;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -27,7 +25,7 @@ public class Blob {
 		String en = this.encryptThisString(file);
 		FILE_NAME="/Users/asher/eclipse-workspace/Git Prereq/objects/"+en+".txt";
 		makeFile(FILE_NAME);
-		fw = new FileWriter(FILE_NAME);
+		fw = new FileWriter(en);
 		fw.write(file);
 	}
 	
