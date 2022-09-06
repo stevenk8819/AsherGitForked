@@ -24,11 +24,12 @@ public class Blob {
 			file += br.read();
 		}
 		String en = this.encryptThisString(file);
-		FILE_NAME="/Users/asher/eclipse-workspace/objects/"+en+".txt";
+		FILE_NAME="/Users/asher/eclipse-workspace/Git/objects/"+en+".txt";
 		makeFile(FILE_NAME);
 		pw = new PrintWriter(FILE_NAME);
 		pw.print(file);
 	}
+	
 	
 	private void makeFile(String s) throws IOException {
 		Path newFilePath = Paths.get(FILE_NAME);
