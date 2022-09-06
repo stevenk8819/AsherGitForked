@@ -22,11 +22,13 @@ public class Blob {
 		while (br.ready()) {
 			file += br.read();
 		}
+		br.close();
 		String en = this.encryptThisString(file);
 		FILE_NAME="/Users/asher/eclipse-workspace/Git Prereq/objects/"+en+".txt";
 		makeFile(FILE_NAME);
 		fw = new FileWriter(en);
 		fw.write(file);
+		fw.close();
 	}
 	
 	
