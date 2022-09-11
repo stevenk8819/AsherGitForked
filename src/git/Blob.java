@@ -31,6 +31,9 @@ public class Blob {
 		fw.close();
 	}
 	
+	public String getName () {
+		return FILE_NAME;
+	}
 	
 	private void makeFile(String s) throws IOException {
 		Path newFilePath = Paths.get(s);
