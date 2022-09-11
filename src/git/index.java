@@ -11,24 +11,20 @@ import java.util.HashMap;
 public class Index {
 	//private boolean bool = false;
 	private HashMap<String, String> hm;
-	private String fn;
-	private Blob blobby;
 	
-	public Index (String str) throws IOException {
+	public Index () throws IOException {
 //		File file = new File("/Users/asher/eclipse-workspace/Git Prereq");
 //		//creating the directory
 //		bool = file.mkdir();
-		fn=str;
 		hm = new HashMap<>();
 	}
 	
 	public void init() throws IOException {
 		makeFile("/Users/asher/eclipse-workspace/Git Prereq/index.txt");
-		blobby = new Blob (fn);
-		
 	}
 	
-	public void add() throws IOException {
+	public void add(String fn) throws IOException {
+		Blob blobby = new Blob (fn);
 		hm.put(fn.substring(41), blobby.getName());
 		FileWriter fw = new FileWriter("/Users/asher/eclipse-workspace/Git Prereq/index.txt");
 		fw.write(fn.substring(41)+" : "+blobby.getName());
