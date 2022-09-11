@@ -8,6 +8,7 @@ public class tester {
 		//Blob b = new Blob ("/Users/asher/eclipse-workspace/Git Prereq/something.txt");
 //		System.out.println(b.encryptThisString("abcdefg"));
 		Index i = new Index("/Users/asher/eclipse-workspace/Git Prereq/something.txt");
+		i.init();
 
 	}
 
