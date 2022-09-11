@@ -25,9 +25,9 @@ public class Index {
 	
 	public void add(String fn) throws IOException {
 		Blob blobby = new Blob (fn);
-		hm.put(fn.substring(42), blobby.getName().substring(42));
+		hm.put(fn.substring(42), blobby.getName());
 		FileWriter fw = new FileWriter("/Users/asher/eclipse-workspace/Git Prereq/index.txt");
-		fw.write(fn.substring(42)+" : "+blobby.getName().substring(42));
+		fw.write(fn.substring(42)+" : "+blobby.getName());
 		fw.close();
 	}
 	

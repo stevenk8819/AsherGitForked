@@ -1,1 +1,1 @@
-something.txt : objects/2fb5e13419fc89246865e7a324f476ec624e8740.txt
+something.txt : 2fb5e13419fc89246865e7a324f476ec624e8740.txt

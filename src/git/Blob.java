@@ -16,6 +16,7 @@ public class Blob {
 	private BufferedReader br;
 	private final String FILE_NAME; 
 	private FileWriter fw;
+	private String en;
 	
 	public Blob (String f) throws IOException {
 		br = new BufferedReader(new FileReader (f));
@@ -23,7 +24,7 @@ public class Blob {
 			file += (char)br.read();
 		}
 		br.close();
-		String en = this.encryptThisString(file);
+		en = this.encryptThisString(file);
 		FILE_NAME="/Users/asher/eclipse-workspace/Git Prereq/objects/"+en+".txt";
 		makeFile(FILE_NAME);
 		fw = new FileWriter(FILE_NAME);
@@ -32,7 +33,7 @@ public class Blob {
 	}
 	
 	public String getName () {
-		return FILE_NAME;
+		return en;
 	}
 	
 	private void makeFile(String s) throws IOException {
