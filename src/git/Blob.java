@@ -33,7 +33,7 @@ public class Blob {
 	
 	
 	private void makeFile(String s) throws IOException {
-		Path newFilePath = Paths.get(FILE_NAME);
+		Path newFilePath = Paths.get(s);
 	    Files.createFile(newFilePath);
 	}
 	
