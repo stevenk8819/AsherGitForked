@@ -41,7 +41,8 @@ public class Index {
 			String str = Blob.encryptThisString(fn);
 			hm.remove(fn.substring(42), str);
 			BufferedReader br = new BufferedReader(new FileReader ("/Users/asher/eclipse-workspace/Git Prereq/index.txt"));
-			
+			File file = new File (fn);
+			file.delete();
 		}
 		
 	}

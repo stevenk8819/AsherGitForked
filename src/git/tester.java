@@ -10,7 +10,7 @@ public class tester {
 		Index i = new Index();
 		i.init();
 		i.add("/Users/asher/eclipse-workspace/Git Prereq/something.txt");
-
+		i.remove("/Users/asher/eclipse-workspace/Git Prereq/something.txt");
 	}
 
 }
