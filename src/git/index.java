@@ -24,6 +24,7 @@ public class Index {
 	
 	public void init() throws IOException {
 		makeFile("/Users/asher/eclipse-workspace/Git Prereq/index.txt");
+		new File ("/Users/asher/eclipse-workspace/Git Prereq/objects/").mkdirs();
 	}
 	
 	public void add(String fn) throws IOException {
