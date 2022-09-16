@@ -1,3 +1,5 @@
+package git;
+
 import java.math.BigInteger;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
@@ -5,6 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -20,17 +23,17 @@ public class Tree {
 private	ArrayList<String> strings = new ArrayList<String>();
 	
 	public Tree (ArrayList<String> input) throws Exception{
-		this.strings = inputList;
+		this.strings = input;
 		File file = new File("tester/objects"); 
 		file.mkdir();
 		createFile();
 	}
 	
 	
-	public String encyptThisString (String value) {
+	public String encyptThisString (String value) throws UnsupportedEncodingException, NoSuchAlgorithmException {
 		 MessageDigest md = MessageDigest.getInstance("SHA-1");
          md.reset();
-         md.update(input.getBytes("UTF-8"));
+         md.update(value.getBytes("UTF-8"));
          return new BigInteger (1, md.digest()).toString(16);
 	}
 	
