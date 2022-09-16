@@ -30,23 +30,23 @@ public class Index {
 	
 	public void add(String fn) throws IOException {
 		Blob blobby = new Blob (fn);
-		if (!hm.containsKey(fn.substring(42))) {
-			hm.put(fn.substring(42), blobby.getName());
+		if (!hm.containsKey(fn.substring(0,fn.length()-4))) {
+			hm.put(fn.substring(0,fn.length()-4), blobby.getName());
 			FileWriter fw = new FileWriter("index.txt");
-			fw.write(fn.substring(42)+" : "+blobby.getName()+"\n");
+			fw.write(fn.substring(0,fn.length()-4)+" : "+blobby.getName()+"\n");
 			fw.close();
 		}
 	}
 	
 	public void remove(String fn) throws IOException {
-		if (hm.containsKey(fn.substring(42))) {
+		if (hm.containsKey(fn.substring(0,fn.length()-4))) {
 			String str = Blob.encryptThisString(fn);
-			hm.remove(fn.substring(42), str);
+			hm.remove(fn.substring(0,fn.length()-4), str);
 			BufferedReader br = new BufferedReader(new FileReader ("index.txt"));
 			PrintWriter pw = new PrintWriter("temp.txt");
 			while (br.ready()) {
 				String read = br.readLine();
-				if (read.indexOf(fn.substring(42))<0) {
+				if (read.indexOf(fn.substring(0,fn.length()-4))<0) {
 					pw.print (read);
 				}
 			}

@@ -9,8 +9,8 @@ public class tester {
 //		System.out.println(b.encryptThisString("abcdefg"));
 		Index i = new Index();
 		i.init();
-		//i.add("/Users/asher/eclipse-workspace/Git Prereq/something.txt");
-		//i.remove("/Users/asher/eclipse-workspace/Git Prereq/something.txt");
+		i.add("/Users/asher/eclipse-workspace/Git Prereq/something.txt");
+		i.remove("/Users/asher/eclipse-workspace/Git Prereq/something.txt");
 	}
 
 }
