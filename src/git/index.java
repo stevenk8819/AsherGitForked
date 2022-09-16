@@ -18,7 +18,7 @@ public class Index {
 	
 	public Index () throws IOException {
 //		File file = new File("/Users/asher/eclipse-workspace/Git Prereq");
-//		//creating the directory
+//		//creating the directory`
 //		bool = file.mkdir();
 		hm = new HashMap<>();
 	}
