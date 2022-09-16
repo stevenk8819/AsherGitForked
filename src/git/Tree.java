@@ -6,11 +6,18 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.security.NoSuchAlgorithmException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import java.util.*;
 
 public class Tree {
-
-	ArrayList<String> strings;
+ 
+private	ArrayList<String> strings = new ArrayList<String>();
 	
 	public Tree (ArrayList<String> input) throws Exception{
 		this.strings = inputList;
