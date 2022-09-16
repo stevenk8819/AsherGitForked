@@ -24,15 +24,15 @@ public class Index {
 	}
 	
 	public void init() throws IOException {
-		makeFile("/Users/asher/eclipse-workspace/Git Prereq/index.txt");
-		new File ("/Users/asher/eclipse-workspace/Git Prereq/objects/").mkdirs();
+		makeFile("index.txt");
+		new File ("objects/").mkdirs();
 	}
 	
 	public void add(String fn) throws IOException {
 		Blob blobby = new Blob (fn);
 		if (!hm.containsKey(fn.substring(42))) {
 			hm.put(fn.substring(42), blobby.getName());
-			FileWriter fw = new FileWriter("/Users/asher/eclipse-workspace/Git Prereq/index.txt");
+			FileWriter fw = new FileWriter("index.txt");
 			fw.write(fn.substring(42)+" : "+blobby.getName()+"\n");
 			fw.close();
 		}
@@ -42,8 +42,8 @@ public class Index {
 		if (hm.containsKey(fn.substring(42))) {
 			String str = Blob.encryptThisString(fn);
 			hm.remove(fn.substring(42), str);
-			BufferedReader br = new BufferedReader(new FileReader ("/Users/asher/eclipse-workspace/Git Prereq/index.txt"));
-			PrintWriter pw = new PrintWriter("/Users/asher/eclipse-workspace/Git Prereq/temp.txt");
+			BufferedReader br = new BufferedReader(new FileReader ("index.txt"));
+			PrintWriter pw = new PrintWriter("temp.txt");
 			while (br.ready()) {
 				String read = br.readLine();
 				if (read.indexOf(fn.substring(42))<0) {
@@ -52,8 +52,8 @@ public class Index {
 			}
 			br.close();
 			pw.close();
-			File ind = new File ("/Users/asher/eclipse-workspace/Git Prereq/index.txt");
-			File temp = new File ("/Users/asher/eclipse-workspace/Git Prereq/temp.txt");
+			File ind = new File ("index.txt");
+			File temp = new File ("temp.txt");
 			ind = temp;
 			temp.delete();
 			

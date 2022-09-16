@@ -25,7 +25,7 @@ public class Blob {
 		}
 		br.close();
 		en = this.encryptThisString(file);
-		FILE_NAME="/Users/asher/eclipse-workspace/Git Prereq/objects/"+en+".txt";
+		FILE_NAME="objects/"+en+".txt";
 		makeFile(FILE_NAME);
 		fw = new FileWriter(FILE_NAME);
 		fw.write(file);
