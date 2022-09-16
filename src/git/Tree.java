@@ -30,7 +30,7 @@ private	ArrayList<String> strings = new ArrayList<String>();
 	}
 	
 	
-	public String encyptThisString (String value) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+	public String encryptThisString (String value) throws UnsupportedEncodingException, NoSuchAlgorithmException {
 		 MessageDigest md = MessageDigest.getInstance("SHA-1");
          md.reset();
          md.update(value.getBytes("UTF-8"));
@@ -52,9 +52,9 @@ private	ArrayList<String> strings = new ArrayList<String>();
 		
 		
 		String stSha = encryptThisString(file);
-		File file = new File("tester/objects/" + stSha);
+		File file3 = new File("tester/objects/" + stSha);
 		
-		PrintWriter pw = new PrintWriter(file);
+		PrintWriter pw = new PrintWriter(file3);
 		 
 		
 		for (int i = strings.size(); i > 0; i--) {
