@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 public class Index {
 	//private boolean bool = false;
-	private HashMap<String, String> hm;
+	private static HashMap<String, String> hm;
 	
 	public Index () throws IOException {
 //		File file = new File("/Users/asher/eclipse-workspace/Git Prereq");
@@ -28,7 +28,7 @@ public class Index {
 		new File ("objects/").mkdirs();
 	}
 	
-	public void add(String fn) throws IOException {
+	public static void add(String fn) throws IOException {
 		Blob blobby = new Blob (fn);
 		if (!hm.containsKey(fn.substring(0,fn.length()-4))) {
 			hm.put(fn.substring(0,fn.length()-4), blobby.getName());
@@ -38,7 +38,7 @@ public class Index {
 		}
 	}
 	
-	public void remove(String fn) throws IOException {
+	public static void remove(String fn) throws IOException {
 		if (hm.containsKey(fn.substring(0,fn.length()-4))) {
 			String str = Blob.encryptThisString(fn);
 			hm.remove(fn.substring(0,fn.length()-4), str);
