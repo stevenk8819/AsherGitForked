@@ -1,6 +1,11 @@
 package git;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.math.BigInteger;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.time.LocalDateTime;  
@@ -19,14 +24,10 @@ public class Commit {
 		summary=sum;
 		author=a;
 		previous = prev;
-		previous.setNext(this);
+		if (previous!=null) {
+			previous.setNext(this);
+		}
 		next = null;
-	}
-	
-	public Commit (String sum, String a) {
-		pTree=null;
-		summary = sum;
-		author = a;
 	}
 	
 	public String getSha () {
@@ -77,7 +78,7 @@ public class Commit {
 		return null; 
 	}
 	
-	public String getNext() { 
+	public String getNextFileName() { 
 		if (next!=null) {
 			return next.getSha(); 
 		}
@@ -88,9 +89,22 @@ public class Commit {
 		next = nx; 
 	}
 	
-//	public void writeFile () {
-//		
-//	}
+	public void writeFile () throws IOException {
+		makeFile ("objects/"+this.getSha());
+		PrintWriter out = new PrintWriter ("objects/"+this.getSha());
+		out.println(pTree);
+		out.println("objects/"+getPreviousFileName());
+		out.println("objects/"+getNextFileName());
+		out.println(author);
+		out.println(getDate());
+		out.println(summary);
+		out.close();
+	}
+	
+	private void makeFile(String s) throws IOException {
+		Path newFilePath = Paths.get(s);
+	    Files.createFile(newFilePath);
+	}
 }
 
 

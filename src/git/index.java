@@ -30,10 +30,17 @@ public class Index {
 	
 	public static void add(String fn) throws IOException {
 		Blob blobby = new Blob (fn);
+		
+		BufferedReader br = new BufferedReader(new FileReader ("index.txt"));
+		String str = "";
+		while (br.ready()) {
+			str += ""+(char)br.read();
+		}
+		
 		if (!hm.containsKey(fn.substring(0,fn.length()-4))) {
 			hm.put(fn.substring(0,fn.length()-4), blobby.getName());
-			FileWriter fw = new FileWriter("index.txt");
-			fw.write(fn.substring(0,fn.length()-4)+" : "+blobby.getName()+"\n");
+			PrintWriter fw = new PrintWriter("index.txt");
+			fw.print(str+fn.substring(0,fn.length()-4)+" : "+blobby.getName()+"\n");
 			fw.close();
 		}
 	}
