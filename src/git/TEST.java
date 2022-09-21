@@ -56,13 +56,13 @@ private static File file, file1, file2;
 		
 	}
 
-//	@Test
-//	void testCommit() throws IOException {
-//		String pt = "objects/a2171e373994fc81baaf616df0c4a9c8b3566048.txt";
-//		Commit c1 = new Commit (pt, "summary 1", "Asher", null);
-//		Commit c2 = new Commit (pt, "summary 2", "ARoss", c1);
-//		c1.writeFile();
-//	}
+	@Test
+	void testCommit() throws IOException {
+		String pt = "objects/a2171e373994fc81baaf616df0c4a9c8b3566048.txt";
+		Commit c1 = new Commit (pt, "summary 1", "Asher", null);
+		Commit c2 = new Commit (pt, "summary 2", "ARoss", c1);
+		c1.writeFile();
+	}
 //	
 //	@Test
 //	void testBlob() throws NoSuchAlgorithmException, IOException {
